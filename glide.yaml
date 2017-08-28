@@ -8,3 +8,6 @@ import:
 testImport:
 - package: github.com/stretchr/testify
   version: 890a5c3
+- package: github.com/golang/lint
+  subpackages:
+  - golint
