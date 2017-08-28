@@ -1,0 +1,11 @@
+[chevah.vbox_ec2_md]
+# IP and Port on which to listen for new connections.
+listen = '169.254.169.254:18082'
+username = ''
+password = ''
+
+    # Configuration for the VirtualBox web service reverse proxy.
+    [chevah.vbox_ec2_md.virtualbox]
+    address = 'http://127.0.0.1:18083'
+    username = ''
+    password = ''

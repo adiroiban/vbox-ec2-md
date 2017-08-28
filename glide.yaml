@@ -1,0 +1,10 @@
+package: github.com/chevah/vbox_ec2_md
+license: MIT
+import:
+- package: github.com/BurntSushi/toml
+  version: ^0.3.0
+  repo: https://github.com/BurntSushi/toml
+  vcs: git
+testImport:
+- package: github.com/stretchr/testify
+  version: 890a5c3
