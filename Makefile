@@ -9,6 +9,7 @@ deps:
 	glide install
 
 test:
+	mkdir -p build
 	go vet -n
 	golint
 	go test -v -race -timeout 1s -covermode=atomic -coverprofile=build/coverage.out
