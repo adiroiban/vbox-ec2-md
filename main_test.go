@@ -43,16 +43,17 @@ func (suite *MainSuite) TearDownTest() {
 func (suite *MainSuite) makeTempFile(content string) string {
 	tmpfile, err := ioutil.TempFile("build", "test-")
 	suite.Nil(err, "Failed to open the temporary file.")
-	path := tmpfile.Name()
-
-	suite.cleanups.callback = os.Remove
-	suite.cleanups.arguments = path
 
 	_, err = tmpfile.Write([]byte(content))
 	suite.Nil(err, "Failed to write the temporary file.")
 
 	err = tmpfile.Close()
 	suite.Nil(err, "Failed to close the temporary file.")
+
+	path := tmpfile.Name()
+
+	suite.cleanups.callback = os.Remove
+	suite.cleanups.arguments = path
 
 	return path
 }
