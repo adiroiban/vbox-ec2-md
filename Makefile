@@ -11,7 +11,7 @@ deps:
 test:
 	go vet -n
 	golint
-	go test -v -race -timeout 1s -covermode=count -coverprofile=build/coverage.out
+	go test -v -race -timeout 1s -covermode=atomic -coverprofile=build/coverage.out
 	go tool cover -func=build/coverage.out
 
 codecov:
