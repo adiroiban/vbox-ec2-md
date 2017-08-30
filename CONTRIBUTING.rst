@@ -1,7 +1,7 @@
 Setting up the dev environment
 ==============================
 
-Just run `make deps` and it should take care of everything.
+Just run `make get-deps` and it should take care of everything.
 
 It will install glide, golint and maybe other things.
 

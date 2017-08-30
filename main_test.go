@@ -42,13 +42,13 @@ func (suite *MainSuite) TearDownTest() {
 
 func (suite *MainSuite) makeTempFile(content string) string {
 	tmpfile, err := ioutil.TempFile("build", "test-")
-	suite.Nil(err, "Failed to open the temporary file.")
+	suite.NoError(err, "Failed to open the temporary file.")
 
 	_, err = tmpfile.Write([]byte(content))
-	suite.Nil(err, "Failed to write the temporary file.")
+	suite.NoError(err, "Failed to write the temporary file.")
 
 	err = tmpfile.Close()
-	suite.Nil(err, "Failed to close the temporary file.")
+	suite.NoError(err, "Failed to close the temporary file.")
 
 	path := tmpfile.Name()
 
@@ -61,18 +61,14 @@ func (suite *MainSuite) makeTempFile(content string) string {
 // Read all data from `in` and return it as string.
 func (suite *MainSuite) ReadAllText(in io.Reader) string {
 	result, err := ioutil.ReadAll(in)
-	if err != nil {
-		suite.Fail("Failed while reading.")
-	}
+	suite.Require().NoError(err, "Failed while reading.")
 	return string(result)
 }
 
 // Serialized input map to a JSON string.
 func (suite *MainSuite) toJSON(input interface{}) string {
 	result, err := json.Marshal(input)
-	if err != nil {
-		suite.Fail("Failed to serialized.")
-	}
+	suite.Require().NoError(err, "Failed to serialized.")
 	return string(result)
 }
 
@@ -158,7 +154,7 @@ listen = '1.2.3.4:1234'
 	options.configPath = configPath
 	config, _, err := prepareServer(&options)
 
-	suite.Nil(err)
+	suite.Require().NoError(err, "Failed to prepare the server.")
 	suite.Equal("1.2.3.4:1234", config.Listen)
 	suite.Equal("http://localhost:1245", config.VirtualBox.Address)
 }
