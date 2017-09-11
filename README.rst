@@ -7,6 +7,9 @@ VirtualBox EC2 Metadata Service
 .. image:: https://codecov.io/gh/adiroiban/vbox-ec2-md/branch/master/graph/badge.svg
   :target: https://codecov.io/gh/adiroiban/vbox-ec2-md
 
+.. image:: https://api.codacy.com/project/badge/Grade/021ac71d84ef457b957b772bba62f0f6
+    :target: https://www.codacy.com/app/Chevah/vbox-ec2-md
+
 This project tries to implement a simple HTTP server which can work with
 VirtualBox in order to server cloud-init requests from the guest VMs
 executed using VirtualBox.
