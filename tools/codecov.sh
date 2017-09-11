@@ -1207,6 +1207,15 @@ do
   fi
 done <<< "$(echo -e "$files")"
 
+if [[ $(find $upload_file -type f -size +104857600c 2>/dev/null) ]]; then
+  say "${r}-->${x} Sorry, the resulting file is to large for uploading."
+  say "    We are working on a solution for large files and will remove this message"
+  say "    when we have resolved the issue. Thank you for your patience."
+  say "    Max upload size is 100mb."
+  curl https://codecov.io/log?$query 2>/dev/null >/dev/null
+  exit ${exit_with};
+fi
+
 if [ "$fr" = "0" ];
 then
   say "${r}-->${x} No coverage data found."

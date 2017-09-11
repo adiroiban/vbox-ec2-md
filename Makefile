@@ -16,4 +16,8 @@ test:
 	go tool cover -func=build/coverage.txt
 
 codecov:
-	./tools/codecov.sh -f build/coverage.txt
+	# Append an empty first line to the report as discussed in the
+	# codecov example from go.
+	# http://stackoverflow.com/a/21142256/2055281
+	echo '' | cat /dev/stdin build/coverage.txt > build/coverage.codecov
+	./tools/codecov.sh -f build/coverage.codecov
