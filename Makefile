@@ -20,4 +20,4 @@ codecov:
 	# codecov example from go.
 	# http://stackoverflow.com/a/21142256/2055281
 	echo '' | cat /dev/stdin build/coverage.txt > build/coverage.codecov
-	./tools/codecov.sh -f build/coverage.codecov
+	./tools/codecov.sh -f build/coverage.codecov -X fixes
